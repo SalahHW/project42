@@ -4,14 +4,19 @@ NAME = libft.a
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror
 
 OBJECTS = $(SOURCES:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
-	$(CC) $(CFLAGS) $(NAME)
+	$(CC) $(CFLAGS) -o $(NAME) -c $(OBJECTS)
 
 $(OBJECTS) :
-	$(CC) $(CFLAGS) $(SOURCES)
+	$(CC) $(CFLAGS) -c $(SOURCES)
+
+clean :
+	rm $(SOURCES)
+
+.PHONY : all clean
