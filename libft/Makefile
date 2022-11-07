@@ -6,7 +6,7 @@
 #    By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:04:11 by sbouheni          #+#    #+#              #
-#    Updated: 2022/11/07 13:40:36 by sbouheni         ###   ########.fr        #
+#    Updated: 2022/11/07 14:28:28 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,15 +23,14 @@ OBJECTS = $(SOURCES:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
-	ar rc $(NAME) $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
 
-$(OBJECTS) :
-	$(CC) $(CFLAGS) $(SOURCES)
-
-clean : $(OBJECTS)
+clean :
 	rm $(OBJECTS)
 
-fclean : $(NAME) clean
+fclean : clean
 	rm $(NAME)
+
+re : fclean all
 
 .PHONY : all clean
