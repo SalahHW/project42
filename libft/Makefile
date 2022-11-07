@@ -6,7 +6,7 @@
 #    By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:04:11 by sbouheni          #+#    #+#              #
-#    Updated: 2022/11/07 11:40:56 by sbouheni         ###   ########.fr        #
+#    Updated: 2022/11/07 13:40:36 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ $(OBJECTS) :
 clean : $(OBJECTS)
 	rm $(OBJECTS)
 
-fclean : clean
+fclean : $(NAME) clean
 	rm $(NAME)
 
 .PHONY : all clean
