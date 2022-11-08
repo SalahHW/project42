@@ -6,11 +6,12 @@
 #    By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:04:11 by sbouheni          #+#    #+#              #
-#    Updated: 2022/11/08 16:57:34 by sbouheni         ###   ########.fr        #
+#    Updated: 2022/11/08 17:13:41 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c
+SOURCES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+					ft_strlen.c
 
 NAME = libft.a
 
