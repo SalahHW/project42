@@ -6,7 +6,7 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 08:45:57 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/11/09 21:16:22 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/11/10 13:30:53 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	*ft_memset(void *s, int c, size_t n)
 {
 	char test;
 
-	test = 
 	while (n > 0)
 	{
 		s = (char)c;
