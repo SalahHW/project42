@@ -6,15 +6,15 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 22:09:32 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/11/10 22:20:56 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/11/11 15:11:59 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, int n)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
