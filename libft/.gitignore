@@ -1,6 +1,7 @@
+.gitignore
 *swp
 *swo
 *.out
 *.o
 *.a
-venv
+test.c
