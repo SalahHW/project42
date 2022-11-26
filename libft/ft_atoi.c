@@ -6,11 +6,20 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:15:44 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/11/25 23:37:08 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:05:37 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	is_white_space(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
+		return (1);
+	else
+		return (0);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -19,21 +28,20 @@ int	ft_atoi(const char *str)
 
 	number = 0;
 	sign = 1;
-	while (*str != 
-	if (*str == '-')
+	while (is_white_space(*str))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		sign *= -1;
+		if (*str == '-')
+		{
+			sign *= -1;
+		}
 		str++;
 	}
-	if (*str == '+')
-	{
-		str++;
-	}
-
 	while (ft_isdigit(*str))
 	{
 		number = number * 10 + (*str - '0');
 		str++;
 	}
-	return	(number * sign);
+	return (number * sign);
 }
