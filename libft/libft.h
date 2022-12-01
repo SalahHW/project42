@@ -6,7 +6,7 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:08:51 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/01 19:02:47 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/01 19:34:36 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
 #endif
