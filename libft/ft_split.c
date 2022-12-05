@@ -12,19 +12,20 @@
 
 #include "libft.h"
 
-int	word_counter(const char *str, char separation)
+size_t	word_counter(const char *str, char separation)
 {
 	size_t	i;
 	size_t	words;
 
 	i = 0;
+	words = 0;
 	while (str[i])
 	{
-		if (str[i] == separation)
+		if (str[i] == separation && str[i] + 1 != separation)
 			words++;
 		i++;
 	}
-	if (i > 0)
+	if (i > 0 && str[i] != separation)
 		words++;
 	return (words);
 }
@@ -46,15 +47,15 @@ char	**ft_split(char const *s, char c)
 {
 	size_t	start;
 	size_t	i;
-	size_t	k;
+	size_t	words;	
 	char	**substring;
 
-	if (s && c)
+	words = word_counter(s, c) + 1;
+	if (s && c && words)
 	{
 		i = 0;
 		start = 0;
-		k = 0;
-		substring = malloc(word_counter(s, c)+ 1);
+		substring = malloc(words);
 		if (substring)
 		{
 			while (s[i])
@@ -66,15 +67,15 @@ char	**ft_split(char const *s, char c)
 				}
 				*substring = allocate_substring(s, start, i);
 				start = i + 1;
-				*substring += 1;
-				k++;
+				substring += 1;
 				i++;
 			}
-			*substring += 1;
 			*substring = allocate_substring(s, start, i);
-			*substring += 1;
+			substring += 1;
 			*substring = NULL;
-			return (substring - k - 2);
+			substring -= words - 1;
+			printf("%s\n", substring[0]);
+			return (substring);
 		}
 	}
 	return (NULL);
