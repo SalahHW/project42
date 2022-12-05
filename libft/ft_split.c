@@ -6,7 +6,7 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 20:20:00 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/02 22:50:52 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:18:58 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	word_counter(const char *str, char separation)
 	words = 0;
 	while (str[i])
 	{
-		if (str[i] == separation && str[i] + 1 != separation)
+		if (str[i] != separation && str[i] - 1 == separation)
 			words++;
 		i++;
 	}
@@ -34,7 +34,7 @@ char	*allocate_substring(char const *str, size_t start, size_t i)
 {
 	char	*allocated_substring;
 
-	allocated_substring = malloc(sizeof(ft_substr(str, start, i - start)));
+	allocated_substring = malloc(sizeof (ft_substr(str, start, i - start)));
 	if (allocated_substring)
 	{
 		allocated_substring = ft_substr(str, start, i - start);
@@ -55,7 +55,7 @@ char	**ft_split(char const *s, char c)
 	{
 		i = 0;
 		start = 0;
-		substring = malloc(words);
+		substring = malloc(words * sizeof(char *));
 		if (substring)
 		{
 			while (s[i])
@@ -74,7 +74,6 @@ char	**ft_split(char const *s, char c)
 			substring += 1;
 			*substring = NULL;
 			substring -= words - 1;
-			printf("%s\n", substring[0]);
 			return (substring);
 		}
 	}
