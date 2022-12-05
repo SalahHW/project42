@@ -6,7 +6,7 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 20:20:00 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/05 15:18:58 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:28:39 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ size_t	word_counter(const char *str, char separation)
 	words = 0;
 	while (str[i])
 	{
-		if (str[i] != separation && str[i] - 1 == separation)
+		if (str[i] == separation && str[i + 1] != separation || str[i + 1] == '\0')
 			words++;
 		i++;
 	}
-	if (i > 0 && str[i] != separation)
-		words++;
 	return (words);
 }
 
