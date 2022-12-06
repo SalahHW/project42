@@ -12,28 +12,38 @@
 
 #include "libft.h"
 
-size_t	word_counter(const char *str, char separation)
+size_t	word_counter(const char *str, char c)
 {
+	int		state;
 	size_t	i;
-	size_t	words;
+	size_t	word_count;
 
+	state = 0;
 	i = 0;
-	words = 0;
+	word_count = 0;
 	while (str[i])
 	{
-		if (str[i] == separation && str[i + 1] != separation || str[i + 1] == '\0')
-			words++;
+		if (str[i] == c)
+		{
+			state = 0;
+		}
+		else if (state == 0)
+		{
+			state = 1;
+			word_count++;
+		}
+
 		i++;
 	}
-	return (words);
+	return (word_count);
 }
 
 char	*allocate_substring(char const *str, size_t start, size_t i)
 {
 	char	*allocated_substring;
 
-	allocated_substring = malloc(sizeof (ft_substr(str, start, i - start)));
-	if (allocated_substring)
+	if ((allocated_substring = 
+				malloc(sizeof (ft_substr(str, start, i - start)))))
 	{
 		allocated_substring = ft_substr(str, start, i - start);
 		return (allocated_substring);
@@ -41,39 +51,41 @@ char	*allocate_substring(char const *str, size_t start, size_t i)
 	return (NULL);
 }
 
+void	set_array_free(char **array, size_t i)
+{
+	while (i != 0)
+	{
+		free(*array);
+		i--;
+	}
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	start;
 	size_t	i;
-	size_t	words;	
+	size_t	count;
 	char	**substring;
 
-	words = word_counter(s, c) + 1;
-	if (s && c && words)
+	i = 0;
+	start = 0;
+	count = 0;
+	if ((substring = malloc((word_counter(s, c) + 1) * sizeof(char *))))
 	{
-		i = 0;
-		start = 0;
-		substring = malloc(words * sizeof(char *));
-		if (substring)
+		while (count <= word_counter(s, c))
 		{
-			while (s[i])
-			{
-				if (s[i] != c)
-				{
-					i++;
-					continue;
-				}
-				*substring = allocate_substring(s, start, i);
-				start = i + 1;
-				substring += 1;
+			while (s[i] == c)
 				i++;
-			}
+			start = i;
+			while (s[i] != c && s[i])
+				i++;
 			*substring = allocate_substring(s, start, i);
 			substring += 1;
-			*substring = NULL;
-			substring -= words - 1;
-			return (substring);
+			count++;
 		}
+		*substring = NULL;
+		substring -= word_counter(s, c) + 1;
+		return (substring);
 	}
 	return (NULL);
 }
