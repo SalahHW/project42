@@ -6,13 +6,13 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 20:20:00 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/05 16:28:39 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:54:44 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	word_counter(const char *str, char c)
+static	size_t	word_counter(const char *str, char c)
 {
 	int		state;
 	size_t	i;
@@ -38,7 +38,7 @@ size_t	word_counter(const char *str, char c)
 	return (word_count);
 }
 
-char	*allocate_substring(char const *str, size_t start, size_t i)
+static	char	*allocate_substring(char const *str, size_t start, size_t i)
 {
 	char	*allocated_substring;
 
@@ -48,16 +48,22 @@ char	*allocate_substring(char const *str, size_t start, size_t i)
 		allocated_substring = ft_substr(str, start, i - start);
 		return (allocated_substring);
 	}
+	substring -= count;
+	set_array_free(substring);
 	return (NULL);
 }
 
-void	set_array_free(char **array, size_t i)
+static	void	set_array_free(char **array)
 {
-	while (i != 0)
+	size_t	i;
+
+	i = 0;
+	while (array[i])
 	{
-		free(*array);
-		i--;
+		free(array[i]);
+		i++;
 	}
+	free(array);
 }
 
 char	**ft_split(char const *s, char c)
@@ -72,7 +78,7 @@ char	**ft_split(char const *s, char c)
 	count = 0;
 	if ((substring = malloc((word_counter(s, c) + 1) * sizeof(char *))))
 	{
-		while (count <= word_counter(s, c))
+		while (count < word_counter(s, c))
 		{
 			while (s[i] == c)
 				i++;
@@ -84,8 +90,10 @@ char	**ft_split(char const *s, char c)
 			count++;
 		}
 		*substring = NULL;
-		substring -= word_counter(s, c) + 1;
+		substring -= word_counter(s, c);
 		return (substring);
 	}
+	substring -= count;
+	set_array_free(substring);
 	return (NULL);
 }
