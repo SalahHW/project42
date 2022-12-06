@@ -32,38 +32,19 @@ static	size_t	word_counter(const char *str, char c)
 			state = 1;
 			word_count++;
 		}
-
 		i++;
 	}
 	return (word_count);
 }
 
-static	char	*allocate_substring(char const *str, size_t start, size_t i)
+static void	free_strings(char **substring, size_t count)
 {
-	char	*allocated_substring;
-
-	if ((allocated_substring = 
-				malloc(sizeof (ft_substr(str, start, i - start)))))
+	while (count != 0)
 	{
-		allocated_substring = ft_substr(str, start, i - start);
-		return (allocated_substring);
+		free(*substring);
+		substring--;
 	}
-	substring -= count;
-	set_array_free(substring);
-	return (NULL);
-}
-
-static	void	set_array_free(char **array)
-{
-	size_t	i;
-
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
+	free(substring);
 }
 
 char	**ft_split(char const *s, char c)
@@ -76,7 +57,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	start = 0;
 	count = 0;
-	if ((substring = malloc((word_counter(s, c) + 1) * sizeof(char *))))
+	substring = malloc((word_counter(s, c) + 1) * sizeof(char *));
+	if (substring)
 	{
 		while (count < word_counter(s, c))
 		{
@@ -85,15 +67,17 @@ char	**ft_split(char const *s, char c)
 			start = i;
 			while (s[i] != c && s[i])
 				i++;
-			*substring = allocate_substring(s, start, i);
+			*substring = malloc(sizeof(ft_substr(s, start, i - start)));
+			if (*substring)
+				*substring = ft_substr(s, start, i - start);
+			else
+				free_strings(substring, count);
 			substring += 1;
 			count++;
 		}
 		*substring = NULL;
-		substring -= word_counter(s, c);
-		return (substring);
+		return (substring -= count);
 	}
-	substring -= count;
-	set_array_free(substring);
+	free_strings(substring, count);
 	return (NULL);
 }
