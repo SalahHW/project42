@@ -6,7 +6,7 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 04:51:02 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/07 06:05:29 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/07 22:30:39 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,23 @@ static int	get_last_digit(int number)
 char	*ft_itoa(int n)
 {
 	char	*number;
-	char	itoa;
 	int		i;
 
 	i = number_length(n);
-	number = malloc(i + 1);
+	number = malloc((i + 1) * sizeof(char));
 	if (number)
 	{
-		number[i + 1] = '\0';
-		while (i >= 0);
+		number[i] = '\0';
+		i--;
+		while (i > 0)
 		{
 			while (n >= 10)
 			{
-				itoa = get_last_digit(n) + '0';
+				number[i] = get_last_digit(n) + '0';
 				n = n / 10;
+				i--;
 			}
-			number[i] = itoa;
-			i--;
+			number[i] = n + '0';
 		}
 		return (number);
 	}
