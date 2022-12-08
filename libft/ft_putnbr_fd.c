@@ -6,7 +6,7 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 17:36:19 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/08 18:06:27 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:09:07 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 	{
-		ft_putnbr_fd(number/10, fd);
+		ft_putnbr_fd(number / 10, fd);
 		ft_putnbr_fd(number % 10, fd);
 	}
 }
