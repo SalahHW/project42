@@ -6,7 +6,7 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 04:51:02 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/08 04:21:05 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/08 06:09:45 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,14 @@ static int	number_length(int number)
 
 static int	get_last_digit(int number)
 {
-	int	last_digit;
+	long	last_digit;
+	long	n;
 
-	last_digit = number % 10;
-	return (last_digit);
+	n = (long)number;
+	if (is_negative(n))
+			n *= -1;
+	last_digit = n % 10;
+	return ((int)last_digit);
 }
 
 char	*ft_itoa(int n)
