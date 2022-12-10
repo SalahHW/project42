@@ -18,6 +18,8 @@ SOURCES =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c		\
 			ft_strtrim.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c							\
 			ft_split.c ft_itoa.c ft_striteri.c ft_putnbr_fd.c ft_strmapi.c					\
 
+BONUS_SRC =	ft_lstnew_bonus.c
+
 NAME =		libft.a
 
 CC =		gcc
@@ -26,13 +28,18 @@ CFLAGS =	-Wall -Wextra -Werror
 
 OBJECTS = $(SOURCES:.c=.o)
 
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
+
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
+bonus : $(BONUS_OBJ)
+	ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJ)
+
 clean :
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(BONUS_OBJ)
 
 fclean : clean
 	rm -f $(NAME)
