@@ -6,7 +6,7 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 04:51:02 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/08 06:09:45 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:04:10 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static int	number_length(int number)
 		length++;
 		temp *= 10;
 	}
-
 	return (length);
 }
 
@@ -54,12 +53,24 @@ static int	get_last_digit(int number)
 	return ((int)last_digit);
 }
 
+static char *write_number(char *number, int i, int n)
+{
+    while (i >= 0)
+    {
+        number[i] = get_last_digit(n) + '0';
+        n /= 10;
+        i--;
+    }
+    return (number);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*number;
 	int		i;
-	int		negative;
+    int     negative;
 
+    negative = 0;
 	i = number_length(n);
 	number = malloc((number_length(n) + 1) * sizeof(char));
 	if (number)
@@ -68,18 +79,13 @@ char	*ft_itoa(int n)
 		if (is_negative(n))
 		{
 			n =-n;
-			negative = 1;
+            negative = 1;
 		}
 		i--;
-		while (i >= 0)
-		{
-			number[i] = get_last_digit(n) + '0';
-			n /= 10;
-			i--;
-		}
-		if (negative)
-			number[0] = '-';
+        number = write_number(number, i, n);
+        if (negative)
+            number[0] = '-';
 		return (number);
-	}
-	return (NULL);
+	}	
+    return (NULL);
 }
