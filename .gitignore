@@ -1,2 +1,8 @@
-libft-unit-test
-
+.gitignore
+*swp
+*swo
+*.out
+*.o
+*.a
+test*.c
+a.out.*
