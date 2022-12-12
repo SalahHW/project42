@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/11 21:05:51 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/11 23:52:17 by sbouheni         ###   ########.fr       */
+/*   Created: 2022/12/12 01:32:21 by sbouheni          #+#    #+#             */
+/*   Updated: 2022/12/12 02:51:18 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*t_list  *ft_lstlast(t_list *lst)
+void    ft_lstclear(t_list **lst, void (*del)(void *))
 {
-    if (lst)
-    {
-        while(lst->next != NULL)
-        {
-            lst = lst->next;
-        }
-        return (lst);
-    }
-    return (NULL);
-    }*/
+    t_list *tmp;
+    t_list *initial;
 
-t_list *ft_lstlast(t_list *lst) {
-  t_list *courant = lst;
-  while (courant != NULL && courant->next != NULL) {
-    courant = courant->next;
-  }
-  return courant;
+    initial = *lst;
+    while (*lst)
+    {
+        tmp = (*lst)->next;
+        del((*lst)->content);
+        free(*lst);
+        *lst = tmp;
+    }
+    *lst = initial;
+    *lst = NULL;
 }
