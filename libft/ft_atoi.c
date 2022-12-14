@@ -6,13 +6,13 @@
 /*   By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:15:44 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/11/26 15:05:37 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/14 07:03:30 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_white_space(char c)
+static int	is_white_space(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
 		|| c == ' ')
