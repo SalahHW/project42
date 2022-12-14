@@ -1,3 +1,5 @@
-*
+/*
 
-!ft*.c
+!.gitignore
+!libft/
+!ft_printf/
