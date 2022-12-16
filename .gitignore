@@ -1,5 +1,7 @@
 /*
 
 !.gitignore
-!libft/
-!ft_printf/
+!libft/*.c
+!libft/*.h
+!ft_printf/*.c
+!ft_printf/*.o
