@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 08:50:14 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/15 09:00:56 by sbouheni         ###   ########.fr       */
+/*   Created: 2022/12/16 08:39:39 by sbouheni          #+#    #+#             */
+/*   Updated: 2022/12/16 11:35:24 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(const char *string, ...)
-{
-	int	i;
+#ifndef FT_PTRINTF_H
+# define FT_PTRINTF_H
+# include "libft.h"
 
-	i = 0;
-	if (string)
-	{
-		while (string[i])
-		{
-			if (string[i] == '%')
-			{
-				check_converstion(string[i + 1]);
-				i++;
-			}
-			i++;
-		}
-	}
-	return (NULL);
-}
+int		ft_printf(const char *format, ...);
+int		evaluate_format(const char c);
+
+#endif
