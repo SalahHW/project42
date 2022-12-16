@@ -6,7 +6,7 @@
 #    By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:04:11 by sbouheni          #+#    #+#              #
-#    Updated: 2022/12/13 07:32:54 by sbouheni         ###   ########.fr        #
+#    Updated: 2022/12/16 01:11:00 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(NAME) : $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 bonus : $(BONUS_OBJ)
-	ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJ)
+	ar rcs $(NAME) $(BONUS_OBJ) $(BONUS_OBJ)
 
 clean :
 	rm -f $(OBJECTS) $(BONUS_OBJ)
