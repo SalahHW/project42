@@ -2,3 +2,5 @@
 *.out
 *.swp
 *.swo
+*.a
+*test.c
