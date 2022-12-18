@@ -6,11 +6,11 @@
 #    By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:04:11 by sbouheni          #+#    #+#              #
-#    Updated: 2022/12/16 01:11:00 by sbouheni         ###   ########.fr        #
+#    Updated: 2022/12/18 21:27:01 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c	\
+SRC =		ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c	\
 			ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c 		\
 			ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c		\
 			ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c		\
@@ -29,20 +29,20 @@ CC =		gcc
 
 CFLAGS =	-Wall -Wextra -Werror
 
-OBJECTS = $(SOURCES:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+$(NAME) : $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 bonus : $(BONUS_OBJ)
-	ar rcs $(NAME) $(BONUS_OBJ) $(BONUS_OBJ)
+	ar rcs $(NAME) $(BONUS_OBJ)
 
 clean :
-	rm -f $(OBJECTS) $(BONUS_OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean : clean
 	rm -f $(NAME)
