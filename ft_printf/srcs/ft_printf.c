@@ -6,54 +6,39 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:50:14 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/17 17:17:29 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/18 03:07:27 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-#include <stdarg.h>
 
-static void	evaluate_format(char c, va_list ap)
+static int	evaluate_format(char c, va_list ap, int size)
 {
 	if (c == 'c')
-		ft_putchar_fd(c, 1);
+		ft_print_char(va_arg(ap, int));
 	else if (c == 's')
-		ft_putstr_fd(va_arg(ap, char *), 1);
+		ft_print_string(va_arg(ap, char *));
 	else if (c == 'p')
-	{
-		//print arg of void * in hexadec
-	}
+		ft_print_hexadecimal(va_arg(ap, unsigned long long));
 	else if (c == 'd')
-	{
-		// print decimal base 10
-	}
+		size += ft_print_decimal(va_arg(ap, int));
 	else if (c == 'i')
-	{
-		ft_putnbr_fd(va_arg(ap, int), 1);
-	}
+		ft_print_integer(va_arg(ap, int));
 	else if (c == 'u')
-	{
-		// print unsigned decimal
-	}
+		ft_print_unsigned_decimal(va_arg(ap, unsigned int));
 	else if (c == 'x')
-	{
-		// print hexadecimal lowercase
-	}
+		ft_print_lower_hexadecimal(va_arg(ap, unsigned int));
 	else if (c == 'X')
-	{
-		// print hexadecimal uppercase
-	}
+		ft_print_upper_hexadecimal(va_arg(ap, unsigned int));
 	else if (c == '%')
-	{
-		ft_putchar_fd('%', 1);
-	}
+		ft_print_percent(va_arg(ap, int));
+	return (size);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	int	i;
 	int	size;
-	const char	*str;
 	va_list		ap;
 
 
@@ -66,12 +51,12 @@ int	ft_printf(const char *format, ...)
 		{
 			if (format[i] == '%')
 			{
-				evaluate_format(format[i + 1], ap);
+				size += evaluate_format(format[i + 1], ap, size);
 				i++;
 			}
 			else 
 			{
-				ft_putchar_fd(format[i], 1);
+				size += ft_print_char(format[i]);
 			}
 			i++;
 		}
