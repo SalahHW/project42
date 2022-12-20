@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:41:57 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/19 07:28:44 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/20 17:51:58 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 int	ft_print_char(int ap)
 {
-	write(1, &ap, 1);
-	return (1);
+	if (ap)
+	{
+		ft_putchar_fd(ap, 1);
+		return (1);
+	}
+	return (0);
 }
