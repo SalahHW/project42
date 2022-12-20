@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2022/12/20 16:28:15 by sbouheni         ###   ########.fr        #
+#    Updated: 2022/12/20 17:44:14 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ libft :
 	cd $(LIBFT_DIR) && $(MAKE)
 
 test :	$(NAME)
-	$(CC) $(TESTFILE) $(NAME)
+	$(CC) $(TESTFILE) $(NAME) libft/libft.a
 
 re : fclean all
 
