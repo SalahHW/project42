@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2022/12/20 17:44:14 by sbouheni         ###   ########.fr        #
+#    Updated: 2022/12/21 05:38:14 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,14 @@ CC =		gcc
 CFLAGS =	-Wall -Wextra -Iinclude#-Werror
 COMPILE =	$(CC) $(CFLAGS)
 NAME =		libftprintf.a
+LIBNAME =	libft.a
 
 TESTFILE =	ft_printf_test.c
 
 SRC_DIR =		./src/
 INCLUDE_DIR =	./include/
 LIBFT_DIR = 	./libft/
+OBJ_DIR =		./obj/
 
 SRC =	$(SRC_DIR)ft_printf.c 													\
 		$(SRC_DIR)ft_print_char.c 												\
@@ -37,7 +39,7 @@ OBJ =	$(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ) libft
-	ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ) $(LIBFT_DIR)$(LIBNAME)
 
 clean :
 	rm -f $(OBJ) 
@@ -48,10 +50,11 @@ fclean : clean
 	cd $(LIBFT_DIR) && $(MAKE) $@
 
 libft :
-	cd $(LIBFT_DIR) && $(MAKE)
+	cd $(LIBFT_DIR) && $(MAKE) && cp $(LIBNAME) ../
+	
 
 test :	$(NAME)
-	$(CC) $(TESTFILE) $(NAME) libft/libft.a
+	$(CC) $(TESTFILE) $(NAME) $(LIBFT_DIR)$(LIBNAME)
 
 re : fclean all
 
