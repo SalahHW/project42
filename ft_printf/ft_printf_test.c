@@ -4,9 +4,10 @@
 int	main(void)
 {
 	int	length;
-	char *str = "Hello world!";
+	char *str = "Sello world!";
 	
-	length = ft_printf(" %i \n", 189334);
+	length = ft_printf("%i\n", 150);
 	ft_printf("%i\n", length);
-	printf("%i", length);
+	length = printf("%i\n", 150);
+	printf("%i\n", length);
 }

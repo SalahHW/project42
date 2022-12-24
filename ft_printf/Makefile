@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2022/12/21 05:38:14 by sbouheni         ###   ########.fr        #
+#    Updated: 2022/12/22 19:07:59 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ libft :
 	
 
 test :	$(NAME)
-	$(CC) $(TESTFILE) $(NAME) $(LIBFT_DIR)$(LIBNAME)
+	$(CC) -g $(TESTFILE) $(NAME) $(LIBFT_DIR)$(LIBNAME)
 
 re : fclean all
 
