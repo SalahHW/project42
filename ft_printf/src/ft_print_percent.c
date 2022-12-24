@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:56:40 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/18 02:58:21 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:22:59 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	ft_print_percent(int ap)
 {
+	ft_putchar_fd('%', 1);
 	return (1);
 }
