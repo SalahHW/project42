@@ -6,11 +6,12 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:46:21 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/24 17:03:58 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:16:39 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
+#include "../include/libft.h"
 
 int	ft_print_hexadecimal(unsigned long long int ap)
 {
