@@ -6,12 +6,12 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:58:35 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/24 20:18:19 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/26 15:25:37 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
-#include "../include/libft.h"
+#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_print_string(char *ap)
 {
@@ -19,6 +19,5 @@ int	ft_print_string(char *ap)
 
 	count = ft_strlen(ap);
 	ft_putstr_fd(ap, 1);
-
-	return(count);
+	return (count);
 }

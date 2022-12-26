@@ -6,14 +6,14 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:51:29 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/25 11:40:41 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/26 15:22:52 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
-#include "../include/libft.h"
+#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_hexadecimal(unsigned long long int ap)
+int	ft_print_lower_hexadecimal(unsigned long long int ap)
 {
 	char	hexadecimal_str[17];
 	int		i;

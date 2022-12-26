@@ -6,11 +6,11 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:50:14 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/25 11:43:02 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/26 15:33:10 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 static int	evaluate_format(char c, va_list ap, int size)
 {
@@ -37,10 +37,9 @@ static int	evaluate_format(char c, va_list ap, int size)
 
 int	ft_printf(const char *format, ...)
 {
-	int	i;
-	int	size;
-	va_list		ap;
-
+	int		i;
+	int		size;
+	va_list	ap;
 
 	va_start(ap, format);
 	i = 0;
@@ -54,7 +53,7 @@ int	ft_printf(const char *format, ...)
 				size += evaluate_format(format[i + 1], ap, size);
 				i++;
 			}
-			else 
+			else
 			{
 				size += ft_print_char(format[i]);
 			}
