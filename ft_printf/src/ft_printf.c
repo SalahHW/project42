@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:50:14 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/24 17:04:35 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/25 11:43:02 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	evaluate_format(char c, va_list ap, int size)
 	else if (c == 'X')
 		size += ft_print_upper_hexadecimal(va_arg(ap, unsigned int));
 	else if (c == '%')
-		size += ft_print_percent(va_arg(ap, int));
+		size += ft_print_percent();
 	return (size);
 }
 

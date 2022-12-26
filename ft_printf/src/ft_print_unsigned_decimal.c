@@ -6,17 +6,18 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 03:00:08 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/18 03:01:20 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/25 11:50:12 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
+#include "../include/libft.h"
 
 int	ft_print_unsigned_decimal(unsigned int ap)
 {
-	int count;
+	int	count;
 
-	count = 0;
-
-	return(count);
+	count = ft_strlen(ft_itoa(ap));
+	ft_putstr_fd(ft_itoa(ap), 1);
+	return (count);
 }
