@@ -6,12 +6,12 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 08:39:39 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/26 15:37:13 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:42:27 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PTRINTF_H
-# define FT_PTRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
 
