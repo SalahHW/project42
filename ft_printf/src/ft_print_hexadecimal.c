@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:46:21 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/26 15:16:13 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/26 16:21:13 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_print_hexadecimal(unsigned long long int ap)
 		if (digit < 10)
 			hexadecimal_str[i] = '0' + digit;
 		else
-			hexadecimal_str[i] = 'A' + digit - 10;
+			hexadecimal_str[i] = 'a' + digit - 10;
 		ap /= 16;
 		i++;
 	}
