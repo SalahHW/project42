@@ -6,23 +6,24 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:50:14 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/26 15:33:10 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:20:48 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	evaluate_format(char c, va_list ap, int size)
+static int	evaluate_format(char c, va_list ap)
 {
+	int	size;
+
+	size = 0;
 	if (c == 'c')
 		size += ft_print_char(va_arg(ap, int));
 	else if (c == 's')
 		size += ft_print_string(va_arg(ap, char *));
 	else if (c == 'p')
 		size += ft_print_hexadecimal(va_arg(ap, unsigned long long int));
-	else if (c == 'd')
-		size += ft_print_integer(va_arg(ap, int));
-	else if (c == 'i')
+	else if (c == 'i' || c == 'd')
 		size += ft_print_integer(va_arg(ap, int));
 	else if (c == 'u')
 		size += ft_print_unsigned_decimal(va_arg(ap, unsigned int));
@@ -50,7 +51,7 @@ int	ft_printf(const char *format, ...)
 		{
 			if (format[i] == '%')
 			{
-				size += evaluate_format(format[i + 1], ap, size);
+				size += evaluate_format(format[i + 1], ap);
 				i++;
 			}
 			else
