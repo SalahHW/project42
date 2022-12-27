@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 03:00:08 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/26 15:16:50 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:00:26 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 int	ft_print_unsigned_decimal(unsigned int ap)
 {
 	int	count;
-
-	count = ft_strlen(ft_itoa(ap));
-	ft_putstr_fd(ft_itoa(ap), 1);
+	char *unsigned_decimal_str;
+	
+	unsigned_decimal_str = ft_itoa(ap);
+	count = ft_strlen(unsigned_decimal_str);
+	ft_putstr_fd(unsigned_decimal_str, 1);
+	free(unsigned_decimal_str);
 	return (count);
 }
