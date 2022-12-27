@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:58:35 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/26 15:25:37 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:35:17 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,16 @@ int	ft_print_string(char *ap)
 {
 	int	count;
 
-	count = ft_strlen(ap);
-	ft_putstr_fd(ap, 1);
+	count = 0;
+	if (ap)
+	{
+		count = ft_strlen(ap);
+		ft_putstr_fd(ap, 1);
+	}
+	else
+	{
+		count = ft_strlen("(null)");
+		ft_putstr_fd("(null)", 1);
+	}
 	return (count);
 }
