@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:49:57 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/26 15:16:02 by sbouheni         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:54:09 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 int	ft_print_integer(int ap)
 {
 	int	count;
+	char *integer_str;
 
-	count = ft_strlen(ft_itoa(ap));
-	ft_putstr_fd(ft_itoa(ap), 1);
+	integer_str = ft_itoa(ap);
+	count = ft_strlen(integer_str);
+	ft_putstr_fd(integer_str, 1);
+	free(integer_str);
 	return (count);
 }
