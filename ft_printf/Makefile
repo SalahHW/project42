@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2022/12/26 15:08:26 by sbouheni         ###   ########.fr        #
+#    Updated: 2022/12/31 13:07:14 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,4 +52,4 @@ test :	$(NAME)
 
 re : fclean all
 
-.PHONY : test libft
+.PHONY : libft
