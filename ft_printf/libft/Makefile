@@ -6,7 +6,7 @@
 #    By: sbouheni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 11:04:11 by sbouheni          #+#    #+#              #
-#    Updated: 2022/12/26 15:19:38 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/01/02 01:18:21 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ NAME =		libft.a
 
 CC =		gcc
 
-CFLAGS =	-Wall -Wextra -Werror -I../include/ 
+CFLAGS =	-Wall -Wextra -Werror -I../include/ -g
 
 OBJ = $(SRC:.c=.o)
 
