@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:50:14 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/27 13:20:48 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:35:32 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	evaluate_format(char c, va_list ap)
 
 	size = 0;
 	if (c == 'c')
-		size += ft_print_char(va_arg(ap, int));
+		size += ft_print_char(va_arg(ap, int), size);
 	else if (c == 's')
 		size += ft_print_string(va_arg(ap, char *));
 	else if (c == 'p')
@@ -47,7 +47,7 @@ int	ft_printf(const char *format, ...)
 	size = 0;
 	if (format)
 	{
-		while (format[i])
+		while (format[i] && size >= 0)
 		{
 			if (format[i] == '%')
 			{
@@ -56,10 +56,12 @@ int	ft_printf(const char *format, ...)
 			}
 			else
 			{
-				size += ft_print_char(format[i]);
+				size += ft_print_char(format[i], size);
 			}
 			i++;
 		}
+		if (size < 0)
+			return (-1);
 	}
 	va_end(ap);
 	return (size);
