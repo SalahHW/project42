@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 01:32:21 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/12 05:06:12 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:38:28 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*tmp;
 	t_list	*initial;
 
+	if (!lst || !del)
+		return ;
 	initial = *lst;
 	while (*lst)
 	{
