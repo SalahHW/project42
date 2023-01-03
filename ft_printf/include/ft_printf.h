@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 08:39:39 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/01/02 15:31:52 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/01/02 23:57:45 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-int		ft_print_char(int ap, int size);
+int		ft_print_char(int ap);
 int		ft_print_string(char *ap);
 int		ft_print_hexadecimal(unsigned long long ap);
 int		ft_print_integer(int ap);
