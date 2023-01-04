@@ -6,18 +6,17 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:58:35 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/01/04 16:42:51 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:48:09 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-
 int	ft_print_string(char *ap)
 {
-	int	count;
-	char *null_str;
+	int		count;
+	char	*null_str;
 
 	count = 0;
 	null_str = "(null)";
