@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 02:46:21 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/01/04 19:57:13 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/01/05 18:43:38 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	get_size(unsigned long long ap)
 		}
 		return (count + 2);
 	}
-	return (4);
+	return (0);
 }
 
 static char	*fill_hexadecimal_str(char *str, int i, unsigned long long ap)
@@ -55,21 +55,23 @@ int	ft_print_hexadecimal(unsigned long long ap)
 	int		i;
 	int		length;
 
-	i = get_size(ap) - 1;
-	hexadecimal_str = malloc(sizeof(char) * get_size(ap));
-	hexadecimal_str[i] = '\0';
-	if (ap == 0)
+	i = get_size(ap);
+	if (i == 0)
 	{
 		if (ft_print_string("0x0") < 0)
 			return (-2147483648);
 		return (3);
 	}
-	else
-	{
-		fill_hexadecimal_str(hexadecimal_str, i, ap);
-	}
-	if (ft_print_string(hexadecimal_str) < 0)
+	hexadecimal_str = malloc(sizeof(char) * (get_size(ap) + 1));
+	if (!hexadecimal_str)
 		return (-2147483648);
+	hexadecimal_str[i--] = '\0';
+	fill_hexadecimal_str(hexadecimal_str, i, ap);
+	if (ft_print_string(hexadecimal_str) < 0)
+	{
+		free(hexadecimal_str);
+		return (-2147483648);
+	}
 	length = ft_strlen(hexadecimal_str);
 	free(hexadecimal_str);
 	return (length);

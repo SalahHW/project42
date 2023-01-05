@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 01:55:48 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/01/02 02:10:47 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:43:19 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ char	*ft_unsigned_itoa(unsigned int n)
 		number = write_number(number, i, n);
 		return (number);
 	}
+	free(number);
 	return (NULL);
 }
