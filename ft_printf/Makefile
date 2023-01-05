@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2023/01/02 01:53:59 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/01/05 20:04:12 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ fclean : clean
 	cd $(LIBFT_DIR) && $(MAKE) $@
 
 test :	$(NAME) $(TESTFILE)
-	$(COMPILE) -g -o test $(TESTFILE) -L. -lftprintf
+	$(COMPILE) -o test $(TESTFILE) -L. -lftprintf
 
 re : fclean all
 
