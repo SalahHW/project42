@@ -6,38 +6,71 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 03:02:15 by sbouheni          #+#    #+#             */
-/*   Updated: 2022/12/26 15:23:12 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/01/05 20:10:00 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "../include/ft_printf.h"
+#include "../include/libft.h"
 
-int	ft_print_upper_hexadecimal(unsigned long long int ap)
+static int	get_size(unsigned long long ap)
 {
-	char	hexadecimal_str[17];
-	int		i;
-	int		digit;
+	int	count;
 
-	i = 0;
-	while (ap > 0)
+	count = 0;
+	if (ap != 0)
+	{
+		while (ap > 0)
+		{
+			ap /= 16;
+			count++;
+		}
+		return (count);
+	}
+	return (0);
+}
+
+static char	*fill_hexadecimal_str(char *str, int i, unsigned long long ap)
+{
+	int	digit;
+
+	while (i >= 0)
 	{
 		digit = ap % 16;
 		if (digit < 10)
-			hexadecimal_str[i] = '0' + digit;
+			str[i] = '0' + digit;
 		else
-			hexadecimal_str[i] = 'A' + digit - 10;
+			str[i] = 'A' + digit - 10;
 		ap /= 16;
-		i++;
+		i--;
 	}
+	return (str);
+}
+
+int	ft_print_upper_hexadecimal(unsigned long long ap)
+{
+	char	*hexadecimal_str;
+	int		i;
+	int		length;
+
+	i = get_size(ap);
 	if (i == 0)
 	{
-		hexadecimal_str[i] = '0';
-		i++;
+		if (ft_print_string("0") < 0)
+			return (-2147483648);
+		return (1);
 	}
-	hexadecimal_str[i] = '\0';
-	ft_putstr_fd("0x", 1);
-	while (i-- >= 0)
-		ft_putchar_fd(hexadecimal_str[i], 1);
-	return (ft_strlen(hexadecimal_str) + 2);
+	hexadecimal_str = malloc(sizeof(char) * (get_size(ap) + 1));
+	if (!hexadecimal_str)
+		return (-2147483648);
+	hexadecimal_str[i--] = '\0';
+	fill_hexadecimal_str(hexadecimal_str, i, ap);
+	if (ft_print_string(hexadecimal_str) < 0)
+	{
+		free(hexadecimal_str);
+		return (-2147483648);
+	}
+	length = ft_strlen(hexadecimal_str);
+	free(hexadecimal_str);
+	return (length);
 }
