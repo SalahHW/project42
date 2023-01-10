@@ -6,18 +6,21 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:08:10 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/01/09 03:41:42 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/01/10 06:10:37 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.c"
+#include "get_next_line.h"
+#include "get_next_line_utils.c"
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "get_next_line.h"
 
-int main(void)
+int	main(void)
 {
-	int fd;
+	int	fd;
+
 	fd = open("test.txt", O_RDONLY);
 	if (fd >= 0)
 	{
