@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:51:55 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/01/09 16:30:17 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/01/10 04:07:03 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);
+char	*join_strings(char *dst, char *src);
 #endif
